@@ -4,6 +4,8 @@ class Ship():
 
     def __init__(self, screen):
         self.screen = screen
+        self.moving_right = False
+        self.moving_left = False
 
         self.image = pygame.image.load("images/space_ship_small.png")
         self.rect = self.image.get_rect()
@@ -15,3 +17,12 @@ class Ship():
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+
+    def update(self):
+        if self.moving_right:
+            self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
+
+
